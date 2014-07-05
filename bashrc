@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ensure /usr/local/bin comes early in the PATH
+export PATH=/usr/local/bin:$PATH
+
 # less shouldn't clear terminal on close, should allow escape codes
 export LESS="-X -r"
 export PAGER="less $LESS"
@@ -41,9 +44,8 @@ alias e=aquamacs
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-
 # Haskell
-export PATH="/Applications/ghc-7.8.2.app/Contents/bin:$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.cabal/bin:/Applications/ghc-7.8.2.app/Contents/bin:$PATH"
 
 # Sublime Text
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
