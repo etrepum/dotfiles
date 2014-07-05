@@ -1,4 +1,4 @@
-SRCS = $(filter-out Makefile,$(wildcard *))
+SRCS = $(filter-out Makefile README.md,$(wildcard *))
 DSTS = $(patsubst %,$(HOME)/.%,$(SRCS))
 .PHONY: all
 

@@ -16,9 +16,11 @@ PROMPT_COMMAND='history -a'
 
 git_dir="$(xcode-select -p)/usr/share/git-core"
 # git completion and prompt
-if [ -f "$git_dir/git-completion.sh" ]; then
-    source "$git_dir/git-completion.sh"
-fi
+for ext in sh bash; do
+    if [ -f "$git_dir/git-completion.$ext" ]; then
+	source "$git_dir/git-completion.$ext"
+    fi
+done
 if [ -f "$git_dir/git-prompt.sh" ]; then
     source "$git_dir/git-prompt.sh"
     export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
