@@ -9,7 +9,7 @@ export PAGER="less $LESS"
 
 # Colorized ls
 export CLICOLOR=1
-alias ls='ls -GF'
+#alias ls='ls -GF'
 alias ll='ls -l'
 
 # Bash history append instead of overwrite.
@@ -45,8 +45,25 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Haskell
-export PATH="$HOME/.cabal/bin:/Applications/ghc-7.8.2.app/Contents/bin:$PATH"
+export PATH="$HOME/.cabal/bin:/Applications/ghc-7.8.3.app/Contents/bin:$PATH"
 
 # Sublime Text
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
+# Pandoc
+export PATH="$HOME/src/pandoc/.cabal-sandbox/bin:$PATH"
+
+# Hobbes
+export PATH="$HOME/src/hobbes/.cabal-sandbox/bin:$PATH"
+
+JDK_PATH=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+if [ -e $JDK_PATH ]; then
+    export JAVA_HOME=$JDK_PATH
+fi
+
+# Arcanist
+export PATH="$HOME/src/arcanist/bin:$PATH"
+
+# Local $HOME/bin
+export PATH="$HOME/bin:$PATH"
 
