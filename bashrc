@@ -44,8 +44,11 @@ alias e=aquamacs
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-# Haskell
-export PATH="$HOME/.cabal/bin:/Applications/ghc-7.8.3.app/Contents/bin:$PATH"
+# Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
+if [ -d "$GHC_DOT_APP" ]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
 
 # Sublime Text
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
@@ -67,3 +70,9 @@ export PATH="$HOME/src/arcanist/bin:$PATH"
 # Local $HOME/bin
 export PATH="$HOME/bin:$PATH"
 
+if [ -e "/app/halcyon/halcyon" ]; then
+  export HALCYON_AWS_ACCESS_KEY_ID=AKIAIGTEG4ATZCHPJJFA
+  export HALCYON_AWS_SECRET_ACCESS_KEY=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
+  export HALCYON_S3_BUCKET=etrepum-halcyon
+  eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
+fi
