@@ -53,12 +53,6 @@ fi
 # Sublime Text
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
-# Pandoc
-export PATH="$HOME/src/pandoc/.cabal-sandbox/bin:$PATH"
-
-# Hobbes
-export PATH="$HOME/src/hobbes/.cabal-sandbox/bin:$PATH"
-
 JDK_PATH=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 if [ -e $JDK_PATH ]; then
     export JAVA_HOME=$JDK_PATH
@@ -74,5 +68,7 @@ if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
     source "$HOME/src/ippolito/dotfiles/bashrc"
 fi
 if [ -e "/app/halcyon/halcyon" ]; then
-  eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
+    export HALCYON_GHC_VERSION=7.10.1
+    export HALCYON_CABAL_VERSION=1.22.4.0
+    eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
 fi
