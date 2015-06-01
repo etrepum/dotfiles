@@ -70,9 +70,9 @@ export PATH="$HOME/src/arcanist/bin:$PATH"
 # Local $HOME/bin
 export PATH="$HOME/bin:$PATH"
 
+if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
+    source "$HOME/src/ippolito/dotfiles/bashrc"
+fi
 if [ -e "/app/halcyon/halcyon" ]; then
-  export HALCYON_AWS_ACCESS_KEY_ID=AKIAIGTEG4ATZCHPJJFA
-  export HALCYON_AWS_SECRET_ACCESS_KEY=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
-  export HALCYON_S3_BUCKET=etrepum-halcyon
   eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
 fi
