@@ -39,13 +39,14 @@ if [ -f "/usr/local/etc/bash_completion.d/hg-completion.bash" ]; then
     source "/usr/local/etc/bash_completion.d/hg-completion.bash"
 fi
 
+export EMACS=/Applications/Aquamacs.app/Contents/MacOS/Aquamacs
 alias e=aquamacs
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-# Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
+# Add GHC 7.10.3 to the PATH, via https://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.10.3.app"
 if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
@@ -64,11 +65,23 @@ export PATH="$HOME/src/arcanist/bin:$PATH"
 # Local $HOME/bin
 export PATH="$HOME/bin:$PATH"
 
+# stack $HOME/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
     source "$HOME/src/ippolito/dotfiles/bashrc"
 fi
-if [ -e "/app/halcyon/halcyon" ]; then
-    export HALCYON_GHC_VERSION=7.10.1
-    export HALCYON_CABAL_VERSION=1.22.4.0
-    eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
-fi
+# if [ -e "/app/halcyon/halcyon" ]; then
+#     export cabal_helper_libexecdir=/app/libexec
+#     export HALCYON_GHC_VERSION=7.10.1
+#     export HALCYON_CABAL_VERSION=1.22.4.0
+#     export HALCYON_NO_SELF_UPDATE=1
+#     eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
+# fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
+
+
+# added by travis gem
+[ -f /Users/bob/.travis/travis.sh ] && source /Users/bob/.travis/travis.sh
