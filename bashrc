@@ -17,16 +17,20 @@ alias ll='ls -l'
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
-git_dir="$(xcode-select -p)/usr/share/git-core"
-# git completion and prompt
-for ext in sh bash; do
-    if [ -f "$git_dir/git-completion.$ext" ]; then
-	source "$git_dir/git-completion.$ext"
-    fi
-done
-if [ -f "$git_dir/git-prompt.sh" ]; then
-    source "$git_dir/git-prompt.sh"
-    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+# git completion
+if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
+  . "/usr/local/etc/bash_completion.d/git-completion.bash"
+fi
+
+# git prompt
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+  . "/usr/local/etc/bash_completion.d/git-prompt.sh"
+  export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
+
+# diff-highlight for git
+if [ -d "/usr/local/share/git-core/contrib/diff-highlight" ]; then
+  export PATH="${PATH}:/usr/local/share/git-core/contrib/diff-highlight"
 fi
 
 # go completion
