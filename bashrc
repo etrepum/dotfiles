@@ -49,12 +49,6 @@ alias e=aquamacs
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-# Add GHC 7.10.3 to the PATH, via https://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.10.3.app"
-if [ -d "$GHC_DOT_APP" ]; then
-  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
-
 # Sublime Text
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
@@ -89,3 +83,4 @@ export NVM_DIR=~/.nvm
 
 # added by travis gem
 [ -f /Users/bob/.travis/travis.sh ] && source /Users/bob/.travis/travis.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
