@@ -9,6 +9,7 @@ export PAGER="less $LESS"
 
 # Colorized ls
 export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Bash history append instead of overwrite.
 # TIP: use history -n to read in history from another shell
@@ -39,8 +40,18 @@ export PATH="$HOME/bin:$PATH"
 # stack $HOME/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
 
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+
 if [ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+fi
+
+if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc" ]; then
+  . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+fi
+
+if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc" ]; then
+  . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
 fi
 
 if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
