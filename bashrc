@@ -54,6 +54,10 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.
   . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
 fi
 
+if [ -d "/Applications/Postgres.app/Contents/Versions/latest/bin" ]; then
+  export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+fi
+
 if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
   . "$HOME/src/ippolito/dotfiles/bashrc"
 fi
