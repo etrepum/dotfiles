@@ -7,5 +7,3 @@ fi
 if [ -e "$HOME/.bashrc" ]; then
   . "$HOME/.bashrc"
 fi
-
-source /etc/bash_completion.d/azds
