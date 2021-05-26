@@ -50,6 +50,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk/
 
+if [ -x $HOMEBREW_PREFIX/bin/go ]; then
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
 if [ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
@@ -73,3 +78,4 @@ fi
 if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
   . "$HOME/src/ippolito/dotfiles/bashrc"
 fi
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
