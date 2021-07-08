@@ -71,6 +71,10 @@ if [ -d "/Applications/Postgres.app/Contents/Versions/latest/bin" ]; then
   export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 fi
 
+if [ -d "$HOME/.cache/rebar3/bin" ]; then
+  export PATH="$HOME/.cache/rebar3/bin:$PATH"
+fi
+
 if [ -e "/etc/bash_completion.d/azds" ]; then
   . /etc/bash_completion.d/azds
 fi
