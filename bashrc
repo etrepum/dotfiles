@@ -79,6 +79,13 @@ if [ -e "/etc/bash_completion.d/azds" ]; then
   . /etc/bash_completion.d/azds
 fi
 
+if [ -e /opt/homebrew/opt/nvm/nvm.sh ]; then
+  mkdir -p $HOME/.nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+fi
+
 if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
   . "$HOME/src/ippolito/dotfiles/bashrc"
 fi
