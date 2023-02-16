@@ -92,3 +92,4 @@ fi
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 which starship >/dev/null && eval "$(starship init bash)"
+which direnv >/dev/null && eval "$(direnv hook bash)"
