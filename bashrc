@@ -90,3 +90,5 @@ if [ -e "$HOME/src/ippolito/dotfiles/bashrc" ]; then
   . "$HOME/src/ippolito/dotfiles/bashrc"
 fi
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+which starship >/dev/null && eval "$(starship init bash)"
